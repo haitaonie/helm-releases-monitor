@@ -1,0 +1,24 @@
+{
+  "helm-releases": [
+    { "environment": "DEV", "platform": "aws-dev", "namespace": "lab", "name": "foo", "chart": "test-api", "version": "0.1.6", "status": { "code": 0, "desc": "deployed" } },
+    {
+      "environment": "DEV",
+      "platform": "aws-dev",
+      "namespace": "lab",
+      "name": "bar",
+      "chart": "test-api",
+      "version": "0.1.6",
+      "status":  { "code": 0, "desc": "deployed" },
+      "resources": [
+        {"kind": "deployments", "namespace": "lab", "name": "foo", "status": { "code": 0, "desc": "ready 1/1" }},
+        {"kind": "deployments", "namespace": "lab", "name": "bar", "status": { "code": 0, "desc": "ready 1/1" }}
+      ]
+    }
+  ],
+  "clusters": ["aws-a","azure-b","gcp-c"],
+  "helm-releases-summaries": [
+    {"namespace": "arch", "count": 19 },
+    {"namespace": "lab-sdf-fsdf-sdfqc-sdf", "count": 219 }
+  ]
+
+}
