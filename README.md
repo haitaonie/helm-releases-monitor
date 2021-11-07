@@ -1,1 +1,1 @@
-# helm-releases-monitor
+# Helm Releases Monitor
