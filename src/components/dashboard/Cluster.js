@@ -7,14 +7,15 @@ import ClusterNamespace from "./ClusterNamespace";
 export default function Cluster({ cluster, selected, selectCluster, getReleases }) {
   const [summaries, setSummaries] = useState([]);
   const getSummaries = async () => {
-    await fetch("http://localhost:5000/helm-releases-summaries")
+    await fetch("http://localhost:5000/helm-releases-summaries/"+cluster)
       .then((res) => {
         if (!res.ok) throw Error("error coming back from server when fetching Helm Releases");
         return res.json();
       })
       .then((dataFromServer) => {
-        setSummaries(dataFromServer);
-      })
+        console.log('data is %v', dataFromServer);
+        setSummaries(dataFromServer.releases);
+      }) 
       .catch((err) => {});
   };
 

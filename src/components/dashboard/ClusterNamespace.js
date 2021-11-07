@@ -3,6 +3,7 @@ import { StyleSheet, css } from "aphrodite/no-important";
 import { Px, commonStyles } from "../posize";
 
 export default function ClusterNamespace({ summary, getReleases, active }) {
+  console.log('summary is %v', summary)
   return (
     <div
       className={css(styles.flex, styles.flex_layout1, commonStyles.clickable)}
