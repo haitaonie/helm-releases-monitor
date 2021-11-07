@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { StyleSheet, css } from "aphrodite/no-important";
 import Cluster from "./Cluster";
+import Loading from "./Loading";
 
 export default function Clusters({ getReleases }) {
   const [clusters, setClusters] = useState([]);
@@ -27,7 +28,7 @@ export default function Clusters({ getReleases }) {
   if (page.loading) {
     return (
       <div className={css(styles.flex_environments)}>
-        <h1>Loading...</h1>
+        <Loading />
       </div>
     );
   } else if (page.error.length > 0) {
@@ -66,3 +67,5 @@ export const styles = StyleSheet.create({
     margin: 5,
   },
 });
+
+
