@@ -1,6 +1,8 @@
-import React from "react";
+import * as React from "react";
+
 import { StyleSheet, css } from "aphrodite/no-important";
-import { commonStyles } from "../posize";
+import { LightTooltip, Sheet } from "./Styles";
+
 export default function IconResources({ selected, text, click }) {
   return (
     <div className={`icon-resources ${css(styles.group, styles.group_layout)}`}>
@@ -15,18 +17,28 @@ export default function IconResources({ selected, text, click }) {
 
   function Icon({ selected, click }) {
     return (
-      <div
-        style={selected ? { "--src": `url(${require("assets/common/x-set-selected.png")})` } : { "--src": `url(${require("assets/common/x-set.png")})` }}
-        className={css(styles.group2, styles.group2_layout, commonStyles.clickable)}
-        onClick={click}
-      />
+      <LightTooltip title="Click to show hte Helm Resources" placement="right">
+        <div
+          style={
+            selected
+              ? { "--src": `url(${require("assets/common/x-set-selected.png")})` }
+              : { "--src": `url(${require("assets/common/x-set.png")})` }
+          }
+          className={css(styles.group2, styles.group2_layout, Sheet.clickable)}
+          onClick={click}
+        />
+      </LightTooltip>
     );
   }
 
   function Text({ selected, text }) {
     return (
       <div className={css(styles.group1, styles.group1_layout)}>
-        <h5 className={css(selected ? styles.highlights_selected : styles.highlights, styles.highlights_layout)}>{text}</h5>
+        <h5
+          className={css(selected ? styles.highlights_selected : styles.highlights, styles.highlights_layout)}
+        >
+          {text}
+        </h5>
       </div>
     );
   }
@@ -72,7 +84,6 @@ const styles = StyleSheet.create({
     textAlign: "right",
     letterSpacing: "0px",
     color: "rgb(33,33,33)",
-
   },
   highlights_selected: {
     display: "flex",
@@ -82,7 +93,6 @@ const styles = StyleSheet.create({
     textAlign: "right",
     letterSpacing: "0px",
     color: "rgb(255,255,255)",
-
   },
   highlights_layout: {
     position: "absolute",

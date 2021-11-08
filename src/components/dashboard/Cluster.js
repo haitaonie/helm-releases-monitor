@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { StyleSheet, css } from "aphrodite/no-important";
-import { Px, commonStyles } from "../posize";
 
 import ClusterNamespace from "./ClusterNamespace";
+import { LightTooltip, Sheet } from "../common/Styles";
 
 export default function Cluster({ cluster, selected, selectCluster, getReleases }) {
   const [summaries, setSummaries] = useState([]);
@@ -21,7 +21,7 @@ export default function Cluster({ cluster, selected, selectCluster, getReleases 
 
   return (
     <div className={`cluster ${css(styles.content_box, styles.content_box_layout)}`}>
-      <div className={css(styles.flex, styles.flex_layout, commonStyles.clickable)} onClick={click}>
+      <div className={css(styles.flex, styles.flex_layout, Sheet.clickable)} onClick={click}>
         <div
           style={
             selected

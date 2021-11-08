@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { StyleSheet, css } from "aphrodite/no-important";
 import Cluster from "./Cluster";
-import Loading from "./Loading";
+import Loading from "../common/Loading";
 
 export default function Clusters({ getReleases }) {
   const [clusters, setClusters] = useState([]);

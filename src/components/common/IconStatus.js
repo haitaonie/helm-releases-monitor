@@ -1,18 +1,13 @@
 import React from "react";
 import { StyleSheet, css } from "aphrodite/no-important";
-import ReactTooltip from 'react-tooltip';
+import { LightTooltip, Sheet } from "./Styles";
 
 export default function IconStatus({ status }) {
   return (
     <div className={`icon-text ${css(styles.content_box, styles.content_box_layout)}`}>
-      <div className={css(styles.content_box_col1)}>
-        <div
-          style={renderIcon(status.code)}
-          className={css(styles.icon, styles.icon_layout)}
-          data-tip={status.desc}
-        />
-        <ReactTooltip backgroundColor="rgb(22,118,255)"/>
-      </div>
+      <LightTooltip title={status.desc} placement="right">
+        <div style={renderIcon(status.code)} className={css(styles.icon, styles.icon_layout)} />
+      </LightTooltip>
     </div>
   );
 

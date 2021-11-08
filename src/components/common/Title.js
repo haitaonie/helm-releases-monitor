@@ -1,15 +1,12 @@
 import React from "react";
 import { StyleSheet, css } from "aphrodite/no-important";
-import { Px, commonStyles } from "../posize";
 
-export default function Title({title}) {
+export default function Title({ title }) {
   return (
     <div className={`title ${css(styles.flex, styles.flex_layout)}`}>
       <h2 className={css(styles.title, styles.title_layout)}>{title}</h2>
     </div>
   );
-
-
 }
 
 const styles = StyleSheet.create({

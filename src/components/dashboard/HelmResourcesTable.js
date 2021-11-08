@@ -3,7 +3,6 @@
  */
 import React from "react";
 import { StyleSheet, css } from "aphrodite/no-important";
-import { Px, commonStyles } from "../posize";
 
 import IconStatus from "../common/IconStatus";
 

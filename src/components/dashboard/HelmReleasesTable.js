@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 import { StyleSheet, css } from "aphrodite/no-important";
-import { commonStyles } from "../posize";
 
 import IconStatus from "../common/IconStatus";
 import IconResources from "components/common/IconResources";

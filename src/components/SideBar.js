@@ -420,11 +420,7 @@ const styles = StyleSheet.create({
     display: "flex",
     flex: "0 1 70px",
   },
-  cover_group: {
-    display: "flex",
-    backgroundColor: "rgb(23,119,255)",
-    borderRadius: "10px 10px 10px 10px",
-  },
+
   cover_group_layout: {
     position: "relative",
     overflow: "visible",
@@ -608,11 +604,7 @@ const styles = StyleSheet.create({
     display: "flex",
     flex: "0 1 70px",
   },
-  cover_group: {
-    display: "flex",
-    backgroundColor: "rgb(23,119,255)",
-    borderRadius: "10px 10px 10px 10px",
-  },
+
   flex12_spacer1: {
     display: "flex",
     flex: "0 1 15px",
@@ -763,11 +755,7 @@ const styles = StyleSheet.create({
     display: "flex",
     flex: "0 1 70px",
   },
-  cover_group: {
-    display: "flex",
-    backgroundColor: "rgb(23,119,255)",
-    borderRadius: "10px 10px 10px 10px",
-  },
+ 
   flex17_spacer1: {
     display: "flex",
     flex: "0 1 15px",
@@ -899,11 +887,7 @@ const styles = StyleSheet.create({
     display: "flex",
     flex: "0 1 70px",
   },
-  cover_group: {
-    display: "flex",
-    backgroundColor: "rgb(23,119,255)",
-    borderRadius: "10px 10px 10px 10px",
-  },
+
   highlights_layout3: {
     position: "relative",
     flexGrow: 1,

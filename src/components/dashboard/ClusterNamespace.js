@@ -1,11 +1,11 @@
 import React from "react";
 import { StyleSheet, css } from "aphrodite/no-important";
-import { Px, commonStyles } from "../posize";
+import { LightTooltip, Sheet } from "../common/Styles";
 
 export default function ClusterNamespace({ summary, getReleases, active }) {
   return (
     <div
-      className={css(styles.flex, styles.flex_layout1, commonStyles.clickable)}
+      className={css(styles.flex, styles.flex_layout1, Sheet.clickable)}
       onClick={active ? getReleases: console.log('not active')}
 
     >
