@@ -5,7 +5,7 @@ import { Px, commonStyles } from "../posize";
 export default function Title({title}) {
   return (
     <div className={`title ${css(styles.flex, styles.flex_layout)}`}>
-      <h2 className={css(styles.helm_release, styles.helm_release_layout)}>{title}</h2>
+      <h2 className={css(styles.title, styles.title_layout)}>{title}</h2>
     </div>
   );
 
@@ -25,12 +25,12 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     margin: 0,
   },
-  helm_release: {
+  title: {
     font: '500 25px/1.2 "Roboto", Helvetica, Arial, serif',
     color: "rgb(126,135,169)",
     letterSpacing: "0px",
   },
-  helm_release_layout: {
+  title_layout: {
     position: "relative",
     flex: "0 0 auto",
     margin: 0,

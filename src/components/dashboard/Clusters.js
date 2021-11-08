@@ -61,7 +61,7 @@ export default function Clusters({ getReleases }) {
 export const styles = StyleSheet.create({
   flex_environments: {
     display: "flex",
-    flexWrap: "wrap",
+    flexWrap: "wrap"
   },
   flex_environment: {
     margin: 5,

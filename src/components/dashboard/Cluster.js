@@ -13,7 +13,6 @@ export default function Cluster({ cluster, selected, selectCluster, getReleases 
         return res.json();
       })
       .then((dataFromServer) => {
-        console.log('data is %v', dataFromServer);
         setSummaries(dataFromServer.releases);
       }) 
       .catch((err) => {});

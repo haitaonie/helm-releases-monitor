@@ -1,27 +1,26 @@
 {
   "helm-releases": [
-    { "environment": "DEV", "platform": "aws-dev", "namespace": "lab", "name": "foo", "chart": "test-api", "version": "0.1.6", "status": { "code": 0, "desc": "deployed" } },
+    { "cluster": "aws-a", "namespace": "arch", "name": "foo", "chart": "test-api", "version": "0.1.6", "status": { "code": -1, "desc": "failed" } },
+    { "cluster": "aws-a", "namespace": "lab",  "name": "bar", "chart": "test-api", "version": "0.1.5", "status": { "code": 0,  "desc": "rollback" } },
     {
-      "environment": "DEV",
-      "cluster": "aws-dev",
+      "cluster": "aws-a", 
       "namespace": "lab",
       "name": "bar",
       "chart": "test-api",
       "version": "0.1.6",
-      "status":  { "code": 0, "desc": "deployed" },
+      "status":  { "code": 1, "desc": "deployed" },
       "resources": [
-        {"kind": "deployments", "namespace": "lab", "name": "foo", "status": { "code": 0, "desc": "ready 1/1" }},
-        {"kind": "deployments", "namespace": "lab", "name": "bar", "status": { "code": 0, "desc": "ready 1/1" }}
+        {"kind": "deployments", "namespace": "lab", "name": "foo", "status": { "code": 0, "desc": "ready 0/1" }},
+        {"kind": "deployments", "namespace": "lab", "name": "foo", "status": { "code": 0, "desc": "ready 0/1" }},
+        {"kind": "deployments", "namespace": "lab", "name": "bar", "status": { "code": 1, "desc": "ready 1/1" }}
       ]
     }
   ],
   "clusters": ["aws-a","azure-b","gcp-c"],
   "helm-releases-summaries": [
-    { "id": "aws-a",   "releases": [{"namespace": "arch",    "count": 19 }, {"namespace": "lab", "count": 100 }] },
-    { "id": "azure-b", "releases": [{"namespace": "service", "count": 119 }] },
-    { "id": "gcp-c",   "releases": [{"namespace": "app",     "count": 119 }] }
-
-
+    { "id": "aws-a",   "releases": [{"namespace": "arch",    "count": 1 }, {"namespace": "lab", "count": 2 }] },
+    { "id": "azure-b", "releases": [{"namespace": "service", "count": 0 }] },
+    { "id": "gcp-c",   "releases": [{"namespace": "app",     "count": 0 }] }
   ]
 
 }

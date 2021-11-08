@@ -1,22 +1,23 @@
 import React, { useEffect, useState } from "react";
 import { StyleSheet, css } from "aphrodite/no-important";
 
-import Helm from "./dashboard/Helm";
-import Clusters from "./dashboard/Clusters";
 import Title from "./common/Title";
+import Clusters from "./dashboard/Clusters";
+import HelmResources from "./dashboard/HelmResources";
+import HelmReleases from "./dashboard/HelmReleases";
 
 export default function Dashboard(props) {
   const [releases, setReleases] = useState([]);
+  const [resources, setResources] = useState([]);
   const getReleases = async (cluster, summary) => {
-    console.log("cluster %s ns %s", cluster, summary.namespace);
-
-    await fetch("http://localhost:5000/helm-releases")
+    await fetch("http://localhost:5000/helm-releases?cluster=" + cluster + "&namespace=" + summary.namespace)
       .then((res) => {
         if (!res.ok) throw Error("error coming back from server when fetching Helm Releases");
         return res.json();
       })
       .then((dataFromServer) => {
         setReleases(dataFromServer);
+        setResources([]);
       })
       .catch((err) => {});
   };
@@ -25,18 +26,30 @@ export default function Dashboard(props) {
       <div className={css(styles.flex, styles.flex_layout)}>
         <Title title="Clusters" />
         <div className={css(styles.flex_spacer)} />
-
-        <Clusters getReleases={getReleases} />
+        <div className={css(styles.height_1)}>
+          <Clusters getReleases={getReleases} />
+        </div>
       </div>
 
       <div className={css(styles.content_box_spacer)} />
 
-      <Helm releases={releases} />
+      <div className={css(styles.flex2, styles.flex2_layout,styles.height_2)}>
+        <HelmReleases releases={releases} setResources={setResources} />
+        <div className={css(styles.flex2_spacer)} />
+        <HelmResources resources={resources} />
+      </div>
     </div>
   );
 }
 
 export const styles = StyleSheet.create({
+  height_1: {
+    minHeight: 180,
+  },
+  height_2: {
+    minHeight: 520,
+  },
+
   content_box: {
     display: "flex",
     flexDirection: "column",
@@ -71,21 +84,6 @@ export const styles = StyleSheet.create({
       margin: "0px 10px 0px 0px",
     },
   },
-  environment: {
-    font: '500 25px/1.2 "Roboto", Helvetica, Arial, serif',
-    color: "rgb(126,135,169)",
-    letterSpacing: "0px",
-    "@media (max-width: 767.98px)": {
-      alignItems: "flex-start",
-      justifyContent: "flex-start",
-      fontSize: "22px",
-      textAlign: "left",
-    },
-  },
-  environment_layout: {
-    position: "relative",
-    margin: 0,
-  },
   flex_spacer: {
     display: "flex",
     flex: "1 1 30px",
@@ -93,5 +91,21 @@ export const styles = StyleSheet.create({
   content_box_spacer: {
     display: "flex",
     flex: "1 1 50px",
+  },
+  flex2: {
+    display: "flex",
+  },
+  flex2_layout: {
+    position: "relative",
+    overflow: "visible",
+    flex: "0 0 auto",
+    margin: 0,
+    "@media (max-width: 1399.98px)": {
+      margin: "25px 0px 0px",
+    },
+  },
+  flex2_spacer: {
+    display: "flex",
+    flex: "0 1 50px",
   },
 });

@@ -31,7 +31,7 @@ export default function HelmResourcesTable(props) {
         {renderItem(resource.kind)}
         {renderItem(resource.namespace)}
         {renderItem(resource.name)}
-        <IconStatus />
+        <IconStatus status={resource.status}/>
       </div>
     );
 

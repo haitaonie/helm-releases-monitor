@@ -6,7 +6,7 @@ import { StyleSheet, css } from "aphrodite/no-important";
 import HelmResourcesTable from "./HelmResourcesTable";
 import Title from "../common/Title";
 
-export default function HelmResources(resources) {
+export default function HelmResources({resources}) {
   return (
     <div className={css(styles.flex_col)}>
       <div className={css(styles.flex, styles.flex_layout)}>
